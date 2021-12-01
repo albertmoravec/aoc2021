@@ -1,0 +1,7 @@
+.vs
+.elixir_ls
+*.txt
+.fake
+.ionide
+.config
+.vscode
