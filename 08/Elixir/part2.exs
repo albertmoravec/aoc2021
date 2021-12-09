@@ -9,7 +9,7 @@ find_mapping = fn patterns ->
   seven = Enum.find(patterns, fn digit -> MapSet.size(digit) == 3 end)
   eight = Enum.find(patterns, fn digit -> MapSet.size(digit) == 7 end)
 
-  mapping = Map.put(mapping, "a", MapSet.difference(seven, one))
+  nine = MapSet.union(three, four)
 
   six = Enum.find(six_segment_numbers, fn digit -> MapSet.size(MapSet.difference(digit, one)) == 5 end)
   six_segment_numbers = six_segment_numbers -- [six]
@@ -20,9 +20,6 @@ find_mapping = fn patterns ->
 
   three = Enum.find(five_segment_numbers, fn digit -> MapSet.size(MapSet.difference(digit, one)) == 3 end)
   five_segment_numbers = five_segment_numbers -- [three]
-
-  nine = MapSet.union(three, four)
-  mapping = Map.put(mapping, "e", MapSet.difference(eight, nine))
 
   zero = (six_segment_numbers -- [nine]) |> hd()
 
